@@ -1,0 +1,188 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(#ffcad4, #f4acb7);
+    font-family: 'Arial Rounded MT Bold', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* ===== CORAZONES INICIO ===== */
+
+#heart-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: floatUp linear infinite;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 10px hotpink);
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh) scale(1); opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+}
+
+/* ===== TARJETA ===== */
+
+.container {
+    background: white;
+    padding: 40px;
+    border-radius: 30px;
+    text-align: center;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    z-index: 10;
+}
+
+h1 { color: #d63384; }
+
+.buttons button {
+    padding: 15px 30px;
+    font-size: 20px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+}
+
+#siBtn { background: #ff4d6d; color: white; margin-right: 15px; }
+#noBtn { background: gray; color: white; position: relative; }
+
+.hidden { display: none !important; }
+
+/* ===== PANTALLA FINAL ===== */
+
+#final-screen {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at center, #14001f, #000);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* ===== DESTELLOS ===== */
+
+#sparkles span {
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, white, transparent);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: sparkleFade 1s linear forwards;
+}
+
+@keyframes sparkleFade {
+    from { transform: scale(1); opacity: 1; }
+    to { transform: scale(3); opacity: 0; }
+}
+
+/* ===== EMOJIS FLOTANTES ===== */
+
+#emoji-container {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.emoji {
+    position: absolute;
+    animation: floatEmoji linear infinite;
+    opacity: 0.9;
+    filter: drop-shadow(0 0 10px pink);
+}
+
+@keyframes floatEmoji {
+    0% { transform: translateY(100vh) scale(1); opacity: 1; }
+    100% { transform: translateY(-10vh) scale(1.6); opacity: 0; }
+}
+
+/* ===== CORAZONES GRANDES ===== */
+
+.big-hearts {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.heart-shape {
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: #ff4d6d;
+    transform: rotate(-45deg);
+    opacity: 0.35;
+    filter: drop-shadow(0 0 40px hotpink);
+    animation: glowPulse 5s infinite;
+}
+
+.heart-shape::before,
+.heart-shape::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    background: #ff4d6d;
+    border-radius: 50%;
+}
+
+.heart-shape::before { top: -90px; left: 0; }
+.heart-shape::after { left: 90px; top: 0; }
+
+.h1 { top: 10%; left: 10%; }
+.h2 { top: 60%; left: 15%; }
+.h3 { top: 25%; right: 15%; }
+.h4 { bottom: 10%; right: 20%; }
+.h5 { bottom: 15%; left: 45%; }
+
+@keyframes glowPulse {
+    0% { transform: rotate(-45deg) scale(1); }
+    50% { transform: rotate(-45deg) scale(1.25); }
+    100% { transform: rotate(-45deg) scale(1); }
+}
+
+/* ===== TEXTO ===== */
+
+.final-text {
+    position: relative;
+    z-index: 10;
+    color: white;
+    font-size: 38px;
+    font-weight: bold;
+    text-align: center;
+    padding: 35px;
+    max-width: 85%;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(12px);
+    border-radius: 25px;
+}
+
+.heartbeat {
+    animation: heartbeat 1.2s infinite;
+}
+
+@keyframes heartbeat {
+    0% { transform: scale(1); }
+    25% { transform: scale(1.1); }
+    50% { transform: scale(1); }
+    75% { transform: scale(1.15); }
+    100% { transform: scale(1); }
+}
+
+/* ===== MÓVIL ===== */
+
+@media (max-width: 600px) {
+    .final-text { font-size: 26px; }
+    .heart-shape { width: 120px; height: 120px; }
+}
